@@ -1,0 +1,12 @@
+C:\Users\YADER\source\repos\MiBodeguita\MiBodeguita.Help\bin\Debug\MiBodeguita.Help.dll
+C:\Users\YADER\source\repos\MiBodeguita\MiBodeguita.Help\bin\Debug\MiBodeguita.Help.pdb
+C:\Users\YADER\source\repos\MiBodeguita\MiBodeguita.Help\obj\Debug\MiBodeguita.Help.csproj.AssemblyReference.cache
+C:\Users\YADER\source\repos\MiBodeguita\MiBodeguita.Help\obj\Debug\MiBodeguita.Help.csproj.CoreCompileInputs.cache
+C:\Users\YADER\source\repos\MiBodeguita\MiBodeguita.Help\obj\Debug\MiBodeguita.Help.dll
+C:\Users\YADER\source\repos\MiBodeguita\MiBodeguita.Help\obj\Debug\MiBodeguita.Help.pdb
+D:\TALLER VISUAL STUDIO\MiBodeguita\MiBodeguita.Help\bin\Debug\MiBodeguita.Help.dll
+D:\TALLER VISUAL STUDIO\MiBodeguita\MiBodeguita.Help\bin\Debug\MiBodeguita.Help.pdb
+D:\TALLER VISUAL STUDIO\MiBodeguita\MiBodeguita.Help\obj\Debug\MiBodeguita.Help.csproj.AssemblyReference.cache
+D:\TALLER VISUAL STUDIO\MiBodeguita\MiBodeguita.Help\obj\Debug\MiBodeguita.Help.csproj.CoreCompileInputs.cache
+D:\TALLER VISUAL STUDIO\MiBodeguita\MiBodeguita.Help\obj\Debug\MiBodeguita.Help.dll
+D:\TALLER VISUAL STUDIO\MiBodeguita\MiBodeguita.Help\obj\Debug\MiBodeguita.Help.pdb

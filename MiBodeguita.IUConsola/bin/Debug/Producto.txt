@@ -1,0 +1,4 @@
+1,harina,12,12,12,7
+2,azucar,12,12,12,1
+5,productito editadito,100,100,100,2
+3,Prodcuto 03 Editado,1000,1000,10000,100
