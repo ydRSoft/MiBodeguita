@@ -13,17 +13,8 @@ namespace MiBodeguita.IUConsola
         static void Main(string[] args)
         {
             while (true) {
-                //Guardar();
-                //Mostrar();
-                //Eliminar();
-                //Editar();
-                //Mostrar();
 
-                //getProducto();
-
-                MostrarLista();
-
-
+                AgregarCompra();
                 Console.WriteLine("\nPresione una tecla para salir...");
                 Console.ReadKey();
 
@@ -31,6 +22,22 @@ namespace MiBodeguita.IUConsola
             }
         }
 
+        static void AgregarCompra() {
+            CompVentaModel objModel = new CompVentaModel();
+            objModel.Codigo = "Codigo 01";
+            objModel.Fecha = DateTime.Now;
+            objModel.Importe = 124;
+
+            CompraBL bl = new CompraBL();
+
+            var resultado = bl.Agregar(objModel);
+            Console.WriteLine(resultado.Mensaje + " -> " + resultado.ID);
+        }
+
+
+
+        #region Producto 
+        
         static void Guardar() {
             ProductoModel objModel = new ProductoModel();
             Console.WriteLine("Nuevo Producto");
@@ -85,7 +92,6 @@ namespace MiBodeguita.IUConsola
                 Console.WriteLine("------------------\n");
             }
         }
-
         static void Eliminar()
         {
             Console.WriteLine("Eliminar Producto");
@@ -144,6 +150,6 @@ namespace MiBodeguita.IUConsola
             Console.WriteLine("Unidad : " + Help.Variables.getUnidad(item.ID_Unidad));
             Console.WriteLine("------------------\n");
         }
-    
+        #endregion
     }
 }

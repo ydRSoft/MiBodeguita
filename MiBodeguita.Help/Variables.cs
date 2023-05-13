@@ -11,9 +11,16 @@ namespace MiBodeguita.Help
         //otros
         public static string PathTemp = "Temporal.txt";
 
+        // compra
+        public static string PathCompras = "Compras.txt";
+        public static string PathCompraDet = "CompraDetalle.txt";
+
+        // Ventas
+        public static string PathVentas = "Ventas.txt";
+        public static string PathVentaDet = "VentaDetalle.txt";
+
         //productos
         public static string PathProd = "Producto.txt";
-        
 
         // Unidades
         public static int UUnidad = 1;

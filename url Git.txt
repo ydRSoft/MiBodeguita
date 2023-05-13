@@ -1,1 +1,24 @@
 https://github.com/ydRSoft/MiBodeguita
+
+PAUTAS
+
+cuando creamos nuestro repositorio
+dentro de la carpeta del proyecto
+
+paso 1: git init
+paso 2: git add .
+paso 3: git commit -m "version"
+paso 4: git remote add origin https://github.com/ydRSoft/MiBodeguita.git
+paso 5: git push -u origin master 
+
+Dentro de la pagina github -> Agregamos una rama (dev)
+
+volvemos ala carpeta
+actualizamos el proyecto
+-> git pull
+-> git checkout dev
+
+Cuando queramos guardar cambios
+paso 1: git add .
+paso 2: git commit -m "version"
+paso 3: git push
