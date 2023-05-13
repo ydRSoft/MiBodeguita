@@ -9,10 +9,10 @@ namespace MiBodeguita.Help
 {
     public class Funciones
     {
-        public static bool GuardarArchivo(string PathArch, string Datos)
+        public static bool GuardarArchivo(string PathArch, string Datos,bool Tipo)
         {
             try {                
-                StreamWriter ArchSave = new StreamWriter(PathArch, true);
+                StreamWriter ArchSave = new StreamWriter(PathArch, Tipo);
                 ArchSave.WriteLine(Datos);
                 ArchSave.Close();
                 return true;
