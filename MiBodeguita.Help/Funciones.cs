@@ -39,5 +39,30 @@ namespace MiBodeguita.Help
                 return -1;
             }
         }
+
+        public static int ValidaId(string PathArch,int ID)
+        {
+            try {
+                if (File.Exists(PathArch)) {
+                    StreamReader Arch = new StreamReader(PathArch);
+                    string Linea = Arch.ReadLine();
+                    while (Linea != null) {
+                        string[] Arreglo;
+                        Arreglo = Linea.Split(',');
+                        int IdLocal = Convert.ToInt32(Arreglo[0]);
+                        if (IdLocal == ID) {
+                            Arch.Close();
+                            return 0;
+                        }
+                        Linea = Arch.ReadLine();
+                    }
+                    Arch.Close();
+                }
+                return ID;
+            } catch {
+                return -1;
+            }
+        }
+
     }
 }

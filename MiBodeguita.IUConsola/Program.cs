@@ -13,8 +13,8 @@ namespace MiBodeguita.IUConsola
         static void Main(string[] args)
         {
             while (true) {
-
-                AgregarCompra();
+                //AgregarCompra();
+                MostrarCompra();
                 Console.WriteLine("\nPresione una tecla para salir...");
                 Console.ReadKey();
 
@@ -23,18 +23,54 @@ namespace MiBodeguita.IUConsola
         }
 
         static void AgregarCompra() {
-            CompVentaModel objModel = new CompVentaModel();
-            objModel.Codigo = "Codigo 01";
-            objModel.Fecha = DateTime.Now;
-            objModel.Importe = 124;
-
             CompraBL bl = new CompraBL();
+            CompVentaModel objModel = new CompVentaModel();
+            int IdModel = 0;
+            do {
+                Console.WriteLine("ID : ");
+                IdModel = Convert.ToInt32(Console.ReadLine());
+                IdModel = bl.ValidaID(IdModel);
+            } while (IdModel<=0);
 
+            objModel.ID = IdModel;
+            Console.WriteLine("Ingrese Codigo :");
+            objModel.Codigo = Console.ReadLine();
+            objModel.Fecha = DateTime.Now;
+            //Console.WriteLine("Importe Total :");
+            //objModel.Importe = Convert.ToDecimal(Console.ReadLine());
+            decimal Importe = 0;
+            List<DetalleModel> mLista = new List<DetalleModel>();
+            for (int i = 1; i < 4; i++) {
+                DetalleModel temp = new DetalleModel(IdModel, "Prod" + i, i * 2, i * 3);
+                Importe = Importe + temp.Total;
+                mLista.Add(temp);
+            }
+
+            objModel.ListaDetalle = mLista;
+            objModel.Importe = Importe;
+            //objModel.Importe = mLista.Sum(x => x.Total);
             var resultado = bl.Agregar(objModel);
             Console.WriteLine(resultado.Mensaje + " -> " + resultado.ID);
         }
 
+        static void MostrarCompra() {
+            CompraBL bl = new CompraBL();
+            var mLista = bl.Mostrar().OrderBy(x=>x.ID).ToList();
+            Console.WriteLine("Lista de Compras\n");
+            foreach (var item in mLista) {                
+                Console.WriteLine("\nCompra ID : "+item.ID);
+                Console.WriteLine("Codigo : "+item.Codigo +"  Fecha : " + item.Fecha.ToShortDateString());
+                Console.WriteLine("Importe : "+item.Importe);
+                Console.WriteLine("\nDetalle de la Compra");
+                DetalleBL detalle = new DetalleBL(Help.Variables.PathCompraDet);
+                var ListaDet = detalle.Mostrar(item.ID);
 
+                foreach (var det in ListaDet) {
+                    Console.WriteLine("Producto " + det.NProducto + " P " + det.Precio +
+                        " - C " + det.Cantidad + " - T " + det.Total);
+                }
+            }
+        }
 
         #region Producto 
         
@@ -59,7 +95,7 @@ namespace MiBodeguita.IUConsola
             Console.WriteLine(Rsta.Mensaje + " -> " + Rsta.ID);
         }
 
-        static void Mostrar() {
+        static void MostrarProducto() {
             ProductoBL bl = new ProductoBL();
             var mLista = bl.Mostrar();
             Console.WriteLine("\nLista de Productos");

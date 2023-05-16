@@ -13,14 +13,14 @@ namespace MiBodeguita.Model
         public string Codigo { set; get; }
         public DateTime Fecha { set; get; }
         public decimal Importe { set; get; }
-        public List<ProductoModel> ListaProd { set; get; }
+        public List<DetalleModel> ListaDetalle { set; get; }
 
         public CompVentaModel() {
             ID = 0;
             Codigo = "Sin Codigo";
             Fecha = DateTime.Now;
             Importe = 0;
-            ListaProd = new List<ProductoModel>();
+            ListaDetalle = new List<DetalleModel>();
         }
     }
 }
