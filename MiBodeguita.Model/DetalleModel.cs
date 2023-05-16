@@ -9,6 +9,7 @@ namespace MiBodeguita.Model
     public class DetalleModel
     {
         public int ID_Ref { set; get; }         //referencia venta o compra
+        public int  ID_Producto { set; get; }
         public string NProducto { set; get; }
         public decimal Precio { set; get; }
         public decimal Cantidad { set; get; }

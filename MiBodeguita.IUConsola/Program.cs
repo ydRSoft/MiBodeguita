@@ -13,7 +13,7 @@ namespace MiBodeguita.IUConsola
         static void Main(string[] args)
         {
             while (true) {
-                //AgregarCompra();
+                AgregarCompra();
                 MostrarCompra();
                 Console.WriteLine("\nPresione una tecla para salir...");
                 Console.ReadKey();
@@ -25,6 +25,7 @@ namespace MiBodeguita.IUConsola
         static void AgregarCompra() {
             CompraBL bl = new CompraBL();
             CompVentaModel objModel = new CompVentaModel();
+            Console.WriteLine("Nueva Compra ");
             int IdModel = 0;
             do {
                 Console.WriteLine("ID : ");
@@ -35,22 +36,55 @@ namespace MiBodeguita.IUConsola
             objModel.ID = IdModel;
             Console.WriteLine("Ingrese Codigo :");
             objModel.Codigo = Console.ReadLine();
-            objModel.Fecha = DateTime.Now;
-            //Console.WriteLine("Importe Total :");
-            //objModel.Importe = Convert.ToDecimal(Console.ReadLine());
-            decimal Importe = 0;
-            List<DetalleModel> mLista = new List<DetalleModel>();
-            for (int i = 1; i < 4; i++) {
-                DetalleModel temp = new DetalleModel(IdModel, "Prod" + i, i * 2, i * 3);
-                Importe = Importe + temp.Total;
-                mLista.Add(temp);
-            }
+            objModel.Fecha = DateTime.Now;            
 
-            objModel.ListaDetalle = mLista;
-            objModel.Importe = Importe;
-            //objModel.Importe = mLista.Sum(x => x.Total);
-            var resultado = bl.Agregar(objModel);
-            Console.WriteLine(resultado.Mensaje + " -> " + resultado.ID);
+            objModel.ListaDetalle = LeerDetalle(IdModel);
+            if (objModel.ListaDetalle.Count > 0)
+            {
+                objModel.Importe = objModel.ListaDetalle.Sum(x => x.Total);
+                var resultado = bl.Agregar(objModel);
+                Console.WriteLine(resultado.Mensaje + " -> " + resultado.ID);
+            }
+            else {
+                Console.WriteLine("registre un producto");
+            }
+           
+        }
+
+        static List<DetalleModel> LeerDetalle(int ID_Ref) {
+            List<DetalleModel> mLista = new List<DetalleModel>();
+            int op = 1;
+            do
+            {
+                Console.WriteLine("Codigo Producto");
+                int ID_Prod = Convert.ToInt32(Console.ReadLine());
+                if (ID_Prod > 0)
+                {
+                    var aux = mLista.Where(x => x.ID_Producto == ID_Prod).FirstOrDefault();
+                    if (aux == null)
+                    {
+                        ProductoBL bl = new ProductoBL();
+                        var producto = bl.getProducto(ID_Prod);
+                        if (producto.ID > 0)
+                        {
+                            DetalleModel temp = new DetalleModel();
+                            Console.WriteLine("Ingrese Precio :");
+                            temp.Precio = Convert.ToDecimal(Console.ReadLine());
+                            Console.WriteLine("Ingrese Cantidad : ");
+                            temp.Cantidad = Convert.ToDecimal(Console.ReadLine());
+                            temp.Total = temp.Precio * temp.Cantidad;
+                            temp.ID_Producto = ID_Prod;
+                            temp.NProducto = producto.Nombre;
+                            mLista.Add(temp);
+                        }
+                    }
+                   
+                }
+
+                op = ID_Prod;
+            } while (op > 0);
+
+            return mLista;
         }
 
         static void MostrarCompra() {

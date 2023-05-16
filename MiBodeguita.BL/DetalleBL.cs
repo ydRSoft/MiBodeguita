@@ -32,8 +32,8 @@ namespace MiBodeguita.BL
         }
 
         private string ObjetoLinea(DetalleModel objModel) {
-            return objModel.ID_Ref + "," + objModel.NProducto + "," + objModel.Precio + "," +
-                        objModel.Cantidad + "," + objModel.Total;
+            return objModel.ID_Ref + "," + objModel.ID_Producto + "," + objModel.NProducto + "," +
+                objModel.Precio + "," + objModel.Cantidad + "," + objModel.Total;
         }
 
         public List<DetalleModel> Mostrar(int ID_Ref)
@@ -51,10 +51,11 @@ namespace MiBodeguita.BL
                         temp.ID_Ref =  Convert.ToInt32(Arreglo[0]);
                         if(temp.ID_Ref == ID_Ref)
                         {
-                            temp.NProducto = Arreglo[1];
-                            temp.Precio = Convert.ToDecimal(Arreglo[2]);
-                            temp.Cantidad = Convert.ToDecimal(Arreglo[3]);
-                            temp.Total = Convert.ToDecimal(Arreglo[4]);
+                            temp.ID_Producto =Convert.ToInt32(Arreglo[1]);
+                            temp.NProducto = Arreglo[2];
+                            temp.Precio = Convert.ToDecimal(Arreglo[3]);
+                            temp.Cantidad = Convert.ToDecimal(Arreglo[4]);
+                            temp.Total = Convert.ToDecimal(Arreglo[5]);
                             mLista.Add(temp);
                         }
                         Linea = Arch.ReadLine();

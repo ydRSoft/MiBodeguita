@@ -179,7 +179,7 @@ namespace MiBodeguita.BL
                     Arch.Close();
                 }
 
-                return objModel;
+                return objModel; // ID = 0
             } catch {
                 return new ProductoModel(-1); // ID = -1;
             }
