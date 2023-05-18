@@ -1,4 +1,5 @@
-456,0,,12,10,120
-456,0,,2,10,20
-567,1,harina,12,14,168
-567,3,Prodcuto 03 Editado,1,2,2
+34,1,harina,12,4,48
+34,3,Prodcuto 03 Editado,5,7,35
+67,1,harina,4,5,20
+9,5,productito editadito,3,4,12
+999,1,harina,2,3,6

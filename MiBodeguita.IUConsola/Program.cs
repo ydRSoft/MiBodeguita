@@ -13,8 +13,10 @@ namespace MiBodeguita.IUConsola
         static void Main(string[] args)
         {
             while (true) {
-                AgregarCompra();
-                MostrarCompra();
+
+                //AgregarCompra();
+                //MostrarCompra();
+                EditarCompra();
                 Console.WriteLine("\nPresione una tecla para salir...");
                 Console.ReadKey();
 
@@ -48,7 +50,6 @@ namespace MiBodeguita.IUConsola
             else {
                 Console.WriteLine("registre un producto");
             }
-           
         }
 
         static List<DetalleModel> LeerDetalle(int ID_Ref) {
@@ -67,6 +68,7 @@ namespace MiBodeguita.IUConsola
                         var producto = bl.getProducto(ID_Prod);
                         if (producto.ID > 0)
                         {
+                            Console.WriteLine("\nProducto : " + producto.Nombre);
                             DetalleModel temp = new DetalleModel();
                             Console.WriteLine("Ingrese Precio :");
                             temp.Precio = Convert.ToDecimal(Console.ReadLine());
@@ -106,8 +108,23 @@ namespace MiBodeguita.IUConsola
             }
         }
 
+        static void EditarCompra()
+        {
+            CompraBL bl = new CompraBL();
+            CompVentaModel objModel = new CompVentaModel();
+            Console.WriteLine("Ingrese ID : ");
+            objModel.ID = Convert.ToInt32(Console.ReadLine());
+            
+            Console.WriteLine("Codigo : ");
+            objModel.Codigo = Console.ReadLine();
+
+            var resultado = bl.Editar(objModel);
+            Console.WriteLine(resultado.Mensaje + " -> " + resultado.ID);
+        }
+
+
         #region Producto 
-        
+
         static void Guardar() {
             ProductoModel objModel = new ProductoModel();
             Console.WriteLine("Nuevo Producto");
