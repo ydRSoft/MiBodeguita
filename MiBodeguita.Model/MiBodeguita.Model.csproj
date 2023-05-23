@@ -46,6 +46,7 @@
     <Compile Include="ProductoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RespuestaModel.cs" />
+    <Compile Include="TipoModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MiBodeguita.Help\MiBodeguita.Help.csproj">

@@ -98,9 +98,11 @@ namespace MiBodeguita.BL
 
                 if (Editado)
                 {
-                    EliminarTemporal();
+                    if (Help.Funciones.EliminaTemporal(Help.Variables.PathProd, Help.Variables.PathTemp)) {
+                        return new RespuestaModel(objModel.ID, "Producto Editado", false);
+                    }
 
-                    return new RespuestaModel(objModel.ID, "Producto Editado", false);
+                    return new RespuestaModel(objModel.ID, "Error al Eliminar Temporal", false);
                 }
 
                 return new RespuestaModel(objModel.ID, "Producto No Editado", true);
@@ -145,9 +147,12 @@ namespace MiBodeguita.BL
 
                 if (Eliminado)
                 {
-                    EliminarTemporal();
+                    if (Help.Funciones.EliminaTemporal(Help.Variables.PathProd, Help.Variables.PathTemp))
+                    {
+                        return new RespuestaModel(ID, "Producto Eliminado", false);
+                    }
 
-                    return new RespuestaModel(ID, "Producto Eliminado", false);
+                    return new RespuestaModel(ID, "Error al Eliminar Temporal", false);
                 }
 
                 return new RespuestaModel(ID, "Producto No Eliminado", true);
@@ -271,22 +276,9 @@ namespace MiBodeguita.BL
             objModel.PCompra = Convert.ToDecimal(Arreglo[3]);
             objModel.Stock = Convert.ToDecimal(Arreglo[4]);
             objModel.ID_Unidad = Convert.ToInt32(Arreglo[5]);
+            objModel.Unidad = Help.Variables.getUnidad(objModel.ID_Unidad);
 
             return objModel;
-        }
-        private void EliminarTemporal() {
-            if (!File.Exists(Help.Variables.PathTemp))
-            {
-                StreamWriter ArchTemp = new StreamWriter(Help.Variables.PathTemp);
-                ArchTemp.Close();
-            }
-
-            if (File.Exists(Help.Variables.PathProd))
-            {
-                File.Delete(Help.Variables.PathProd);
-            }
-
-            File.Move(Help.Variables.PathTemp, Help.Variables.PathProd);
-        }
+        }        
     }
 }

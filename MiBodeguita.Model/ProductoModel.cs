@@ -18,6 +18,7 @@ namespace MiBodeguita.Model
         public decimal PVenta { set; get; }
         public decimal Stock { set; get; }
         public int ID_Unidad { set; get; }
+        public string Unidad { set; get; }
 
         public ProductoModel() {
             ID = 0;

@@ -1,0 +1,2 @@
+4,pruducto 04,12.5,10.7,100,2
+6,producto editado,2.8,2.4,100,2
