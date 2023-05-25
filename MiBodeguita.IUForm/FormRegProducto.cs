@@ -25,7 +25,6 @@ namespace MiBodeguita.IUForm
         {
             if (mProducto!=null)
             {
-                this.Text = "Editar Producto";
                 textBoxID.Text = mProducto.ID.ToString();
                 textBoxNombre.Text = mProducto.Nombre;
                 textBoxPVenta.Text = mProducto.PVenta.ToString();
@@ -35,12 +34,7 @@ namespace MiBodeguita.IUForm
                 textBoxID.Enabled = false;
                 buttonGuardar.Text = "Editar";
             }
-            else {
-                this.Text = "Registrar Producto";
-            }
-
             CargaInicial();
-
         }
 
         private void CargaInicial() {

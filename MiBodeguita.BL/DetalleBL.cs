@@ -25,6 +25,7 @@ namespace MiBodeguita.BL
                     return new RespuestaModel(objModel.ID_Ref, "No Guardado" + objModel.NProducto, true);
                 }
 
+                ActualizaStock(objModel.ID_Producto, objModel.Cantidad);
                 return new RespuestaModel(objModel.ID_Ref, "Guardado ", false);
             } catch {
                 return new RespuestaModel();
@@ -68,5 +69,17 @@ namespace MiBodeguita.BL
             }
 
         }
+
+
+        private void ActualizaStock(int IdProd, decimal Cantidad) {
+            ProductoBL bl = new ProductoBL();
+            var Prod = bl.getProducto(IdProd);
+
+            if (Prod.ID > 0) {
+                Prod.Stock = Prod.Stock + Cantidad;
+                var resultado = bl.Editar(Prod);
+            }
+        }
     }
+
 }

@@ -18,3 +18,5 @@ D:\TALLER VISUAL STUDIO\MiBodeguita\MiBodeguita.IUForm\bin\Debug\MiBodeguita.BL.
 D:\TALLER VISUAL STUDIO\MiBodeguita\MiBodeguita.IUForm\bin\Debug\MiBodeguita.Help.pdb
 D:\TALLER VISUAL STUDIO\MiBodeguita\MiBodeguita.IUForm\bin\Debug\MiBodeguita.Model.pdb
 D:\TALLER VISUAL STUDIO\MiBodeguita\MiBodeguita.IUForm\obj\Debug\MiBodeguita.IUForm.csproj.CopyComplete
+D:\TALLER VISUAL STUDIO\MiBodeguita\MiBodeguita.IUForm\obj\Debug\MiBodeguita.IUForm.FormCompra.resources
+D:\TALLER VISUAL STUDIO\MiBodeguita\MiBodeguita.IUForm\obj\Debug\MiBodeguita.IUForm.FormMosCompras.resources

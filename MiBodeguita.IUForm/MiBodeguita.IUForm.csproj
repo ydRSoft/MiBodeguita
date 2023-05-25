@@ -45,11 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCompra.Designer.cs">
+      <DependentUpon>FormCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormInicio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormInicio.Designer.cs">
       <DependentUpon>FormInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMosCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMosCompras.Designer.cs">
+      <DependentUpon>FormMosCompras.cs</DependentUpon>
     </Compile>
     <Compile Include="FormMosProducto.cs">
       <SubType>Form</SubType>
@@ -71,8 +83,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormCompra.resx">
+      <DependentUpon>FormCompra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormInicio.resx">
       <DependentUpon>FormInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMosCompras.resx">
+      <DependentUpon>FormMosCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMosProducto.resx">
       <DependentUpon>FormMosProducto.cs</DependentUpon>

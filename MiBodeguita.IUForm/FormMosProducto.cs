@@ -92,7 +92,8 @@ namespace MiBodeguita.IUForm
                 if (prod.ID > 0)
                 {
                     FormRegProducto frm = new FormRegProducto(prod);
-                    frm.Show();
+                    frm.Text = "Editar Producto";
+                    AbrirFormulario(frm);
                 }
                 else {
                     MessageBox.Show("producto no disponible");
@@ -111,6 +112,21 @@ namespace MiBodeguita.IUForm
 
             MessageBox.Show(resultado.Mensaje);
             LLenarDataGridView(bl.Mostrar());
+        }
+
+        private void AbrirFormulario(Form frm)
+        {
+            var Formulario = FormInicio.ActiveForm.MdiChildren.Where(x => x.Name == frm.Name 
+                                                        && x.Text == frm.Text).FirstOrDefault();
+            if (Formulario == null)
+            {
+                frm.MdiParent = FormInicio.ActiveForm;
+                frm.Show();
+            }
+            else
+            {
+                Formulario.BringToFront();
+            }
         }
     }
 }
