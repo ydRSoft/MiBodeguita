@@ -1,5 +1,9 @@
 https://github.com/ydRSoft/MiBodeguita
 
+Para Actualizar Proyecto
+git pull
+
+
 PAUTAS
 
 cuando creamos nuestro repositorio

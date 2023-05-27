@@ -161,6 +161,7 @@ namespace MiBodeguita.IUForm
             this.Controls.Add(this.panel1);
             this.Name = "FormMosProducto";
             this.Text = "FormMosProducto";
+            this.Load += new System.EventHandler(this.FormMosProducto_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

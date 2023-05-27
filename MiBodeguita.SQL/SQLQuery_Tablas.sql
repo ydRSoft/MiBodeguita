@@ -29,8 +29,8 @@ INSERT INTO Producto VALUES(2,'Azucar',1.632,2.346,100,1)
 INSERT INTO Producto VALUES(3,'Tomate',2.632,3.346,100,1)
 INSERT INTO Producto VALUES(4,'Prueba',2.632,4.346,100,1)
 
-DELETE Producto
-WHERE PCompra>3
+
+DELETE Producto WHERE ID = 4
 GO
 
 SELECT 

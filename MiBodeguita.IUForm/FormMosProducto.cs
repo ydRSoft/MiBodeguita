@@ -19,8 +19,16 @@ namespace MiBodeguita.IUForm
         public FormMosProducto()
         {
             InitializeComponent();
-            ProductoBL bl = new ProductoBL();
-            LLenarDataGridView(bl.getLista(""));
+            
+        }
+        private void FormMosProducto_Load(object sender, EventArgs e)
+        {
+            //ProductoBL bl = new ProductoBL();
+            //LLenarDataGridView(bl.Mostrar()); // desde archivos
+
+            ProductoSQL pSql = new ProductoSQL();
+            var ListaProd = pSql.Mostrar();
+            LLenarDataGridView(ListaProd);
         }
 
         private void buttonBuscar_Click(object sender, EventArgs e)
@@ -86,8 +94,11 @@ namespace MiBodeguita.IUForm
             try {
                 int IdProd = Convert.ToInt32(dataGridViewMostrar.SelectedRows[0].Cells[0].Value);
 
-                ProductoBL bl = new ProductoBL();
-                var prod = bl.getProducto(IdProd);
+                //ProductoBL bl = new ProductoBL();
+                //var prod = bl.getProducto(IdProd);
+
+                ProductoSQL pSql = new ProductoSQL();
+                var prod = pSql.getProducto(IdProd);
 
                 if (prod.ID > 0)
                 {
@@ -98,8 +109,8 @@ namespace MiBodeguita.IUForm
                 else {
                     MessageBox.Show("producto no disponible");
                 }
-            } catch { 
-            
+            } catch {
+                MessageBox.Show("Error de conexion");
             }
         }
 
@@ -107,11 +118,15 @@ namespace MiBodeguita.IUForm
         {
             int IdProd = Convert.ToInt32(dataGridViewMostrar.SelectedRows[0].Cells[0].Value);
 
-            ProductoBL bl = new ProductoBL();
-            var resultado = bl.Eliminar(IdProd);
+            // Desde Archivos
+            //ProductoBL bl = new ProductoBL();
+            //var resultado = bl.Eliminar(IdProd);
 
+            ProductoSQL pSql = new ProductoSQL();
+            var resultado = pSql.Eliminar(IdProd);
             MessageBox.Show(resultado.Mensaje);
-            LLenarDataGridView(bl.Mostrar());
+
+            LLenarDataGridView(pSql.Mostrar());
         }
 
         private void AbrirFormulario(Form frm)
@@ -128,5 +143,7 @@ namespace MiBodeguita.IUForm
                 Formulario.BringToFront();
             }
         }
+
+        
     }
 }

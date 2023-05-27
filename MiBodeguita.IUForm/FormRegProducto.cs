@@ -64,15 +64,18 @@ namespace MiBodeguita.IUForm
                 p.Stock = Convert.ToDecimal(textBoxStock.Text);
                 p.ID_Unidad = Convert.ToInt32(comboBoxUnidad.SelectedValue);
 
-                ProductoBL bl = new ProductoBL();
+                //ProductoBL bl = new ProductoBL();
+                ProductoSQL pSql = new ProductoSQL();
                 RespuestaModel resultado = new RespuestaModel();
 
                 if (mProducto == null)
                 {
-                    resultado = bl.Guardar(p);
+                    
+                    resultado = pSql.Guardar(p);
+                    //resultado = bl.Guardar(p);
                 }
                 else {
-                    resultado = bl.Editar(p);
+                    resultado = pSql.Editar(p);
                 }
 
                 if (resultado.Error)
